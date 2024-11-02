@@ -1,0 +1,14 @@
+{
+    "watch_ext": [
+        ".go",
+        ".tpl",
+        ".html"
+    ],
+    "watch_paths": [
+        "controllers",
+        "models",
+        "routers",
+        "services",
+        "views"
+    ]
+}
