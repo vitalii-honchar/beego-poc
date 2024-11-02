@@ -2,6 +2,7 @@ package main
 
 import (
 	"beego-poc/controllers"
+	"beego-poc/database"
 	"beego-poc/routers"
 	"beego-poc/services"
 	"context"
@@ -15,6 +16,7 @@ func main() {
 		routers.Module,
 		controllers.Module,
 		services.Module,
+		database.Module,
 		fx.Invoke(RunBeego),
 	).Run()
 }

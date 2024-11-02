@@ -1,10 +1,12 @@
 package controllers
 
 import (
+	"beego-poc/models"
 	"beego-poc/services"
 	"strconv"
 
-	"github.com/beego/beego/v2/core/logs"
+	"github.com/beego/beego/logs"
+	"github.com/beego/beego/v2/client/orm"
 	"github.com/beego/beego/v2/server/web"
 )
 
@@ -27,7 +29,13 @@ func (u *UserController) Get() {
 		u.Ctx.WriteString("Invalid ID")
 		return
 	}
-	user := u.UserService.GetByID(id)
+
+	o := orm.NewOrm()
+	user := &models.User{ID: id}
+	if err := o.Read(user); err != nil {
+		u.Ctx.WriteString("User not found")
+		return
+	}
 
 	u.Data["User"] = user
 	u.TplName = "pages/user/profile.html"

@@ -5,6 +5,7 @@ go 1.23
 require github.com/beego/beego/v2 v2.1.0
 
 require (
+	github.com/mattn/go-sqlite3 v1.14.7
 	github.com/smartystreets/goconvey v1.6.4
 	go.uber.org/fx v1.23.0
 )
